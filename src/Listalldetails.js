@@ -6,6 +6,7 @@ export let Listallpage=()=>
 {
     // conts[getname(variable),setname(FUNCTION)]=useState(initialized)
     const[allvalues,setAllvalues]=useState([]);
+
     useEffect(async()=>{
         const res=await Displayall()
         setAllvalues(res.data)
@@ -20,6 +21,7 @@ export let Listallpage=()=>
                             <th>Account number</th>
                             <th>Account Holder</th>
                             <th>Account Balance</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,9 +29,17 @@ export let Listallpage=()=>
                             allvalues.map((data)=>
                             (
                                 <tr>
-                                    <td>{data.acc_number}</td>
+                                    <td>
+                                        <a href={`reading/${data.acc_number}`} className='btn btn-outline-primary'>
+                                            {data.acc_number}
+                                        </a>
+                                    </td>
                                     <td>{data.acc_holder}</td>
                                     <td>{data.acc_bal}</td>
+                                    <td>
+                                        <button className='btn btn-outline-warning'>UPDATE</button>
+                                        <button className='btn btn-outline-danger'>DELETE</button>
+                                    </td>
                                 </tr>
                             ))
 
