@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect, useState } from 'react';
-import { Displayall } from './connect';
+import { Displayall, deleteaccount } from './connect';
+import { useNavigate } from 'react-router';
 
 export let Listallpage=()=>
 {
+    const navi=useNavigate();
     // conts[getname(variable),setname(FUNCTION)]=useState(initialized)
     const[allvalues,setAllvalues]=useState([]);
 
@@ -39,7 +41,16 @@ export let Listallpage=()=>
                                     <td>
                                         <button className='btn btn-outline-warning'
                                         ><a href={`updating/${data.acc_number}`}>update</a></button>
-                                        <button className='btn btn-outline-danger'>DELETE</button>
+                                        <button className='btn btn-outline-danger'
+                                        onClick={
+                                            async()=>
+{
+                                                const temp=await deleteaccount(data.acc_number);
+
+                                                alert(temp.data+" has been deleted successfully");
+                                                navi("/listall");
+                                            }
+                                        }>DELETE</button>
                                     </td>
                                 </tr>
                             ))

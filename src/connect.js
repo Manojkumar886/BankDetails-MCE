@@ -30,3 +30,12 @@ export const updateaccdetails=async(acc_number,object)=>
 
     const temp=await axios.put(`${url}/${acc_number}`,object)
 }
+
+
+export const deleteaccount=async(key)=>
+{
+    const url="http://localhost:2020/info/delkey";
+
+    const t=await axios.delete(`${url}/${key}`);
+    return t;
+}
