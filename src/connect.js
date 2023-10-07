@@ -24,4 +24,9 @@ export const readoneaccountdetails=async(acc_number)=>
 
 }
 
+export const updateaccdetails=async(acc_number,object)=>
+{
+    const url="http://localhost:2020/info/change"
 
+    const temp=await axios.put(`${url}/${acc_number}`,object)
+}

@@ -37,7 +37,8 @@ export let Listallpage=()=>
                                     <td>{data.acc_holder}</td>
                                     <td>{data.acc_bal}</td>
                                     <td>
-                                        <button className='btn btn-outline-warning'>UPDATE</button>
+                                        <button className='btn btn-outline-warning'
+                                        ><a href={`updating/${data.acc_number}`}>update</a></button>
                                         <button className='btn btn-outline-danger'>DELETE</button>
                                     </td>
                                 </tr>
