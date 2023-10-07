@@ -39,8 +39,7 @@ export let Listallpage=()=>
                                     <td>{data.acc_holder}</td>
                                     <td>{data.acc_bal}</td>
                                     <td>
-                                        <button className='btn btn-outline-warning'
-                                        ><a href={`updating/${data.acc_number}`}>update</a></button>
+                                        <a href={`updating/${data.acc_number}`} className='btn btn-outline-primary'>UPDATE</a>
                                         <button className='btn btn-outline-danger'
                                         onClick={
                                             async()=>
@@ -48,7 +47,7 @@ export let Listallpage=()=>
                                                 const temp=await deleteaccount(data.acc_number);
 
                                                 alert(temp.data+" has been deleted successfully");
-                                                navi("/listall");
+                                                navi("/listall")
                                             }
                                         }>DELETE</button>
                                     </td>
